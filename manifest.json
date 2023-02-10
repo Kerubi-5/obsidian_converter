@@ -1,11 +1,11 @@
 {
-	"id": "obsidian-sample-plugin",
-	"name": "Sample Plugin",
+	"id": "obsidian-html-converter",
+	"name": "SFC HTML Converter",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "This is a sample plugin for Obsidian. This plugin demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
-	"isDesktopOnly": false
+	"description": "This is for Martin's Markdown to HTML Converter",
+	"author": "John Kim Querobines",
+	"authorUrl": "https://kkwebdev.xyz/",
+	"fundingUrl": "https://kkwebdev.xyz/contact",
+	"isDesktopOnly": true
 }

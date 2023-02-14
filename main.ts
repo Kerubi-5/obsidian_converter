@@ -37,11 +37,8 @@ export default class MyPlugin extends Plugin {
 					font-family: 'Playfair Display', serif;
 					font-weight: 600;
 				}
-				h1, a {
+				h1, h2, h3, a {
 					color: #405aac;
-				}
-				h2, h3 {
-					color: #54595F;
 				}
 				h1 {
 					font-size: 2.074rem;

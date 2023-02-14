@@ -18,11 +18,12 @@ export default class MyPlugin extends Plugin {
 		const prepended_url = 'https://salesflowcoach.app/vault/';
 		const yamlRegex = /^---[\r\n]+([\s\S]*)[\r\n]+---[\r\n]+/;
 		const wikilink_pattern = /\[\[(.*)\]\]/g;
+		const captureDisplayText = /^[^|]+\|(.+)$/; // This will capture display text on a wikilink eg: [[Link|Display Text]] It will capture the Display Text
 
 		const selectedMarkdown = editor.getSelection();
-		const cleanSelection = selectedMarkdown.replace(yamlRegex, ''); // This is if yaml/fm is also selected
+		const cleanSelection = selectedMarkdown.replace(yamlRegex, ''); // This is if yaml/frontmatter is also selected
 		const convertedHTML = marked(cleanSelection).replace(wikilink_pattern, (_, p1) => {
-			return `<a href="${prepended_url}${makeSlug(p1)}">${p1}</a>`; // Simulate GG's way of creating slugs
+			return `<a href="${prepended_url}${makeSlug(p1)}">${p1.replace(captureDisplayText, '$1')}</a>`; // Simulate GG's way of creating slugs
 		});
 
 		const styles = `

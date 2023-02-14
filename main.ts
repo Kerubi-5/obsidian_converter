@@ -21,10 +21,11 @@ export default class MyPlugin extends Plugin {
 		const captureDisplayText = /^[^|]+\|(.+)$/; // This will capture display text on a wikilink eg: [[Link|Display Text]] It will capture the Display Text
 
 		const selectedMarkdown = editor.getSelection();
-		const cleanSelection = selectedMarkdown.replace(yamlRegex, ''); // This is if yaml/frontmatter is also selected
-		const convertedHTML = marked(cleanSelection).replace(wikilink_pattern, (_, p1) => {
-			return `<a href="${prepended_url}${makeSlug(p1)}">${p1.replace(captureDisplayText, '$1')}</a>`; // Simulate GG's way of creating slugs
+		const cleanSelection = selectedMarkdown.replace(yamlRegex, '').replace(wikilink_pattern, (_, p1) => {
+			return `<a href="${prepended_url}${makeSlug(p1)}">${p1.replace(captureDisplayText, '$1')}</a>`; // Remove yaml/frontmatter and then Simulate GG's way of creating slugs
 		});
+
+		const convertedHTML = marked(cleanSelection); // Convert the processed markdown selection to HTML
 
 		const styles = `
 			<style type="text/css">
@@ -52,7 +53,8 @@ export default class MyPlugin extends Plugin {
 					font-size: 1.44rem;
 				}
 				a {
-				    text-decoration: none;
+				    text-decoration: underline;
+					text-decoration-color: #405aac;
 				}
 			</style>
 		`

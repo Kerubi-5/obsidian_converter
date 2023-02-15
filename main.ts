@@ -22,7 +22,7 @@ export default class MyPlugin extends Plugin {
 
 		const selectedMarkdown = editor.getSelection();
 		const cleanSelection = selectedMarkdown.replace(yamlRegex, '').replace(wikilink_pattern, (_, p1) => {
-			return `<a href="${prepended_url}${makeSlug(p1)}">${p1.replace(captureDisplayText, '$1')}</a>`; // Remove yaml/frontmatter and then Simulate GG's way of creating slugs
+			return `<a href="${prepended_url}${makeSlug(p1)}"><u>${p1.replace(captureDisplayText, '$1')}</u></a>`; // Remove yaml/frontmatter and then Simulate GG's way of creating slugs
 		});
 
 		const convertedHTML = marked(cleanSelection); // Convert the processed markdown selection to HTML

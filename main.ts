@@ -17,7 +17,7 @@ export default class MyPlugin extends Plugin {
 	markdownToHTML(editor: Editor) {
 		const prepended_url = 'https://salesflowcoach.app/vault/';
 		const yamlRegex = /^---[\r\n]+([\s\S]*)[\r\n]+---[\r\n]+/;
-		const wikilink_pattern = /\[\[(.*)\]\]/g;
+		const wikilink_pattern = /\[\[(.*?)\]\]/g;
 		const captureDisplayText = /^[^|]+\|(.+)$/; // This will capture display text on a wikilink eg: [[Link|Display Text]] It will capture the Display Text
 
 		const selectedMarkdown = editor.getSelection();

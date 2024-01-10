@@ -1,7 +1,7 @@
 {
 	"id": "obsidian-html-converter",
 	"name": "SFC HTML Converter",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"minAppVersion": "0.15.0",
 	"description": "This is for Martin's Markdown to HTML Converter",
 	"author": "John Kim Querobines",
